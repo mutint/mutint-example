@@ -1,0 +1,5 @@
+# Install dependencies from aledb-core first:
+#   pip install -r aledb-core/requirements.txt
+#
+# mutint-app-specific additions (if any):
+# example-package>=1.0
