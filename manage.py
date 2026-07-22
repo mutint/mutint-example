@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 Entry point for standalone mutint-app development.
 Mirrors the pattern in aledb-core/aledb but for this app's config.
