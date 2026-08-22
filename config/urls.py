@@ -11,7 +11,6 @@ from django.urls import include, re_path, path
 from django.conf import settings
 from django.contrib import admin
 from django.apps import apps as django_apps
-from config.views import protected_file_serve
 
 _auth_cfg = next(
     (cfg for cfg in django_apps.get_app_configs() if getattr(cfg, 'auth_app', False)),
@@ -41,7 +40,6 @@ urlpatterns += [
     re_path(r'^mutations/', include('aledb_seq.urls')),
     re_path(r'^search/', include('aledb_search.urls')),
     re_path(r'^stats/', include('aledb_stats.urls')),
-    re_path(r'^aledata/(?P<page_name>.*)$', protected_file_serve),
 ]
 
 # ── mutint_app patterns ───────────────────────────────────────────────────────
