@@ -1,8 +1,8 @@
 """MutInt's own version.
 
-Same shape as aledb_common/version.py, and discovered by the same `version`
+Same shape as mutint_common/version.py, and discovered by the same `version`
 management command because this app is installed -- so `./mutint version` reports
-MutInt alongside the aledb-core it runs on, and `--component MutInt --bump patch`
+MutInt alongside the mutint-core it runs on, and `--component MutInt --bump patch`
 rewrites this file.
 
 NAME is what the command and the sidebar call it; without it the command would
