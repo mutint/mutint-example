@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block header %}
+    <b><a href="/project/{{ ale_project_id }}">{{ ale_project_name }}</a>: {{ experiment_name }}</b> - Example
+{% endblock %}
+{% block content %}
+    <div class="col-lg-12">
+        <h3>Example</h3>
+        <p>This page is the example plugin's: it shows, for every sample in the experiment, how
+            many mutations it carries and how many of those at least one other sample carries
+            too. The designated ancestor's mutations are left out. The same table is a panel on
+            the <a href="/stats?experiment_id={{ experiment_id }}">Overview</a>.</p>
+        {% include "example/_table.html" %}
+    </div>
+{% endblock %}

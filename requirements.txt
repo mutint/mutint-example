@@ -1,5 +1,6 @@
 # Install dependencies from mutint-core first:
 #   pip install -r mutint-core/requirements.txt
 #
-# mutint-app-specific additions (if any):
-# example-package>=1.0
+# mutint-example-specific additions (if any):
+#
+# There are none. The example is two queries over core's models and two templates.

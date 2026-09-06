@@ -1,0 +1,10 @@
+# mutint-example's documentation, read through an assembled project's manual when the plugin
+# is installed -- which, being a stub, it normally is not. The page is under "Extending MutInt"
+# because that is who it is for.
+
+site_name: mutint-example
+site_description: The example plugin
+
+nav:
+  - Extending MutInt:
+      - The example plugin: extending/example-plugin.md

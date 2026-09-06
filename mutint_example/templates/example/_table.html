@@ -1,0 +1,26 @@
+{% comment %} The one table, shared by the page and the Overview panel. `rows` comes from
+   mutint_example.util.sample_sharing. {% endcomment %}
+{% if rows %}
+    <table class="table table-condensed mutint-example-table" style="width: auto;">
+        <thead>
+            <tr>
+                <th>Sample</th>
+                <th class="text-right">Mutations</th>
+                <th class="text-right">Shared with another sample</th>
+                <th class="text-right">Unique to this sample</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td><a href="{{ row.url }}">{{ row.label }}</a></td>
+                    <td class="text-right">{{ row.mutations }}</td>
+                    <td class="text-right">{{ row.shared }}</td>
+                    <td class="text-right">{{ row.unique }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p class="text-muted">No samples in this experiment.</p>
+{% endif %}

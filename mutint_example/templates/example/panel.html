@@ -1,0 +1,6 @@
+{% comment %} The body of the Overview panel: the heading above it and the rule between panels
+   are drawn by /stats. See mutint_common/panel_registry.py. {% endcomment %}
+<p class="text-muted" style="margin-bottom: 6px;">Each sample's mutations, and how many of
+    them another sample in this experiment carries too. The designated ancestor's mutations are
+    left out. The same table is the <a href="{% url 'example' %}?experiment_id={{ experiment_id }}">Example page</a>.</p>
+{% include "example/_table.html" %}
