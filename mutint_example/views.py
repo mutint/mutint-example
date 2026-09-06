@@ -26,8 +26,8 @@ def example(request):
     context.update({
         "experiment_id": experiment.id,
         "experiment_name": experiment.name,
-        "ale_project_name": experiment.project.name,
-        "ale_project_id": experiment.project.id,
+        "project_name": experiment.project.name,
+        "project_id": experiment.project.id,
         "title": experiment.name + " Example",
         "rows": sample_sharing(experiment),
     })

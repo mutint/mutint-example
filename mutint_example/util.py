@@ -11,7 +11,7 @@ in the suite moved to once fetching whole `MutationCall` rows was measured.
 import collections
 
 from mutint_sample.mutation_matrix import sample_page_url
-from mutint_sample.util import calls_for_samples, get_reseq_ordered_dict
+from mutint_sample.util import calls_for_samples, get_ordered_sample_dict
 
 
 def sample_sharing(experiment):
@@ -20,10 +20,10 @@ def sample_sharing(experiment):
     `mutations` is the number of distinct mutations the sample carries, `shared` how many of
     those at least one other sample in the experiment carries too, and `unique` the rest.
     """
-    reseq_dict = get_reseq_ordered_dict(experiment.id)
-    if not reseq_dict:
+    sample_dict = get_ordered_sample_dict(experiment.id)
+    if not sample_dict:
         return []
-    pairs = (calls_for_samples(list(reseq_dict), experiment.id)
+    pairs = (calls_for_samples(list(sample_dict), experiment.id)
              .filter(present=True)
              .values_list("sample_id", "mutation_id")
              .iterator(chunk_size=2000))
@@ -35,7 +35,7 @@ def sample_sharing(experiment):
             carriers[mutation_id] += 1
 
     rows = []
-    for sample_id, sample in reseq_dict.items():
+    for sample_id, sample in sample_dict.items():
         mutations = by_sample.get(sample_id, set())
         shared = sum(1 for mutation_id in mutations if carriers[mutation_id] > 1)
         rows.append({
