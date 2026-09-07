@@ -26,6 +26,7 @@ class ExampleConfig(AppConfig):
         from mutint_common.panel_registry import register_overview_panel
         from mutint_common.plugin_registry import register_plugin_urlpatterns
         from mutint_example.panel import example_panel_context
+        from mutint_example.version import __version__
 
         # A page: its routes, mounted under a prefix of its own, and a sidebar entry in the
         # experiment section by `url_name`, so a half-installed plugin leaves no dead link.
@@ -39,5 +40,5 @@ class ExampleConfig(AppConfig):
                                 template='example/panel.html',
                                 context=example_panel_context)
 
-        register_about_section(self, name='mutint-example',
+        register_about_section(self, name='mutint-example', version=__version__,
                                template='about/sections/mutint_example.html')
