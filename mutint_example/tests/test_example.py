@@ -79,7 +79,7 @@ class PageTestCase(_Fixture):
         response = self.client.get("/example/", {"experiment_id": self.experiment.id})
         self.assertEqual(200, response.status_code)
         html = response.content.decode()
-        self.assertIn('class="mutint-experiment-name">e</span></b> &mdash; Example', html)
+        self.assertIn('class="mutint-experiment-name">e</span></b> <span class="mutint-header-sep">&raquo;</span> Example', html)
         self.assertIn("mutint-example-table", html)
         self.assertIn(self.first.label, html)
 
