@@ -79,13 +79,13 @@ class PageTestCase(_Fixture):
         response = self.client.get("/example/", {"experiment_id": self.experiment.id})
         self.assertEqual(200, response.status_code)
         html = response.content.decode()
-        self.assertIn("P</a>: e</b> - Example", html)
+        self.assertIn('class="mutint-experiment-name">e</span></b> &mdash; Example', html)
         self.assertIn("mutint-example-table", html)
         self.assertIn(self.first.label, html)
 
     def test_the_sidebar_and_the_header_bar_carry_the_entry(self):
         html = self.client.get("/example/", {"experiment_id": self.experiment.id}).content.decode()
-        self.assertIn('href="/example/?experiment_id=%d">&nbsp;&nbsp;&nbsp;Example</a>'
+        self.assertIn('href="/example/?experiment_id=%d">Example</a>'
                       % self.experiment.id, html)
 
     def test_without_an_experiment_the_page_says_so(self):
